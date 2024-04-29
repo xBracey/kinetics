@@ -6,17 +6,20 @@ import SpatialHashGrid from "./collision/SpatialHashGrid";
 import Entity from "./entities/Entity";
 import Circle from "./entities/shapes/Circle";
 
-import Camera from "./utils/Camera";
-import Renderer from "./utils/Renderer";
-import Vector from "./utils/Vector";
+import Vector from "./entities/Vector";
 
-import { CameraConfig, SystemRenderingConfig, EntityRenderingConfig, SystemConfig } from "./typings/Config";
-import { EntityConfig, CircleConfig, EntityForm, CollisionManager } from "./typings/Interfaces";
+import { SystemConfig } from "./typings/Config";
+import {
+  EntityConfig,
+  CircleConfig,
+  EntityForm,
+  CollisionManager,
+} from "./typings/Interfaces";
 
-import { Movement, Environment, EntityType, Colors  } from "./typings/Enums";
+import { Movement, Environment, EntityType } from "./typings/Enums";
 
 // Check if the code is running in a web browser environment
-const isWebEnvironment = typeof window !== 'undefined';
+const isWebEnvironment = typeof window !== "undefined";
 
 // SYSTEM
 export { System };
@@ -28,37 +31,31 @@ export { Entity, Circle };
 export const Collision = { CollisionResolver, SpatialHashGrid };
 
 // U T I L S
-export { Camera, Renderer, Vector };
+export { Vector };
 
 // I N T E R F A C E S
 export {
-    CameraConfig,
-    SystemRenderingConfig,
-    EntityRenderingConfig,
-    SystemConfig,
-    EntityConfig,
-    CircleConfig,
-    EntityForm,
-    CollisionManager
+  SystemConfig,
+  EntityConfig,
+  CircleConfig,
+  EntityForm,
+  CollisionManager,
 };
 
 // E N U M S
-export { Movement, Environment, EntityType, Colors };
+export { Movement, Environment, EntityType };
 
 // Attach the exports to the `window` object in a web environment
 if (isWebEnvironment) {
-    /** @ts-ignore */
-    window.Kinetics = {
-        System,
-        Entity,
-        Circle,
-        Collision,
-        Camera,
-        Renderer,
-        Vector,
-        Movement,
-        Environment,
-        EntityType,
-        Colors
-    };
+  /** @ts-ignore */
+  window.Kinetics = {
+    System,
+    Entity,
+    Circle,
+    Collision,
+    Vector,
+    Movement,
+    Environment,
+    EntityType,
+  };
 }
